@@ -1,0 +1,18 @@
+{
+    "name": "TaskBase",
+    "description": "Base class for tasks",
+    "keywords": "TaskBase tasks scheduler",
+    "authors": {
+        "name": "Martin Budden",
+        "url": "https://github.com/martinbudden"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/martinbudden/Library-TaskBase.git"
+    },
+    "license": "MIT",
+    "version": "0.0.1",
+    "frameworks": "*",
+    "platforms": "*",
+    "headers": [ "TaskBase.h", "TimeMicroSeconds.h"]
+}
