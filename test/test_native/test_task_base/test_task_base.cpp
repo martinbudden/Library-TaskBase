@@ -1,4 +1,6 @@
 #include <TaskBase.h>
+#include <TimeMicroSeconds.h>
+
 #include <array>
 #include <unity.h>
 
@@ -19,6 +21,9 @@ void test_task_base()
     TEST_ASSERT_EQUAL(TASK_INTERVAL_MICROSECONDS, task.getTaskIntervalMicroSeconds());
     TEST_ASSERT_EQUAL(0, task.getTickCountDelta());
     TEST_ASSERT_EQUAL(0, task.getTimeMicroSecondDelta());
+
+    TEST_ASSERT_EQUAL(0, timeMs());
+    TEST_ASSERT_EQUAL(0, timeUs());
 }
 
 // NOLINTEND(cppcoreguidelines-avoid-magic-numbers,cppcoreguidelines-pro-bounds-pointer-arithmetic,readability-magic-numbers)
