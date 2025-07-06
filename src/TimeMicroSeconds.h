@@ -37,12 +37,16 @@ inline timeMs64_t timeMs64() { return 0; }
 #else // defaults to FRAMEWORK_ARDUINO
 
 #if defined(USE_ARDUINO_ESP32)
-#include <esp32-hal.h>
+#include <esp_timer.h>
+inline timeUs32_t timeUs() { return static_cast<timeUs32_t>(esp_timer_get_time()); }
+inline timeUs64_t timeUs64() { return esp_timer_get_time(); }
+
+inline timeUs32_t timeMs() { return static_cast<timeUs32_t>(esp_timer_get_time() / 1000); }
+inline timeUs64_t timeMs64() { return esp_timer_get_time() / 1000; }
 #else
 #include <Arduino.h>
-#endif
-
 inline timeUs32_t timeUs() { return micros(); } // overflows after approximately 70 minutes.
 inline timeMs32_t timeMs() { return millis(); } // overflows after approximately 50 days.
+#endif
 
 #endif // FRAMEWORK
