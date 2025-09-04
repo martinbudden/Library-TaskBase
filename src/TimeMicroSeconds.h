@@ -36,7 +36,7 @@ inline timeMs64_t timeMs64() { return 0; }
 
 #else // defaults to FRAMEWORK_ARDUINO
 
-#if defined(USE_ARDUINO_ESP32)
+#if defined(FRAMEWORK_ARDUINO_ESP32)
 #include <esp_timer.h>
 inline timeUs32_t timeUs() { return static_cast<timeUs32_t>(esp_timer_get_time()); }
 inline timeUs64_t timeUs64() { return esp_timer_get_time(); }

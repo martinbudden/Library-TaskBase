@@ -14,6 +14,8 @@ public:
         uint8_t* stackBuffer;
         uint32_t priority;
         uint32_t coreID;
+        uint32_t taskIntervalMicroSeconds;
+        uint32_t filler;
     };
 public:
     explicit TaskBase(uint32_t taskIntervalMicroSeconds) : _taskIntervalMicroSeconds(taskIntervalMicroSeconds) {}
