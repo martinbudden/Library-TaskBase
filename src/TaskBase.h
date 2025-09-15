@@ -10,10 +10,10 @@ public:
     struct task_info_t {
         void* taskHandle;
         const char* name;
-        uint32_t stackDepth;
+        uint32_t stackDepthBytes;
         uint8_t* stackBuffer;
         uint32_t priority;
-        uint32_t coreID;
+        uint32_t core;
         uint32_t taskIntervalMicroSeconds;
     };
 public:
