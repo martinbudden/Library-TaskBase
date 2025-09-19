@@ -1,6 +1,8 @@
 {
     "cSpell.words": [
+        "afroflight",
         "altera",
+        "blackpill",
         "Budden",
         "bugprone",
         "clangtidy",
@@ -11,6 +13,9 @@
         "llvmlibc",
         "noreturn",
         "pioenvs",
+        "robotdyn",
+        "stlink",
+        "ststm",
         "suppr",
         "unflags",
         "Wattributes",
@@ -20,14 +25,19 @@
         "Werror",
         "Wextra",
         "Wfloat",
+        "Wignored",
         "Wimplicit",
         "Winline",
         "Wmissing",
         "Wnarrowing",
         "Wpacked",
         "Wpadded",
+        "Wredundant",
         "Wshadow",
         "Wsign",
-        "Wtrampolines"
+        "Wstrict",
+        "Wtrampolines",
+        "Wunsafe",
+        "Wunused"
     ]
 }

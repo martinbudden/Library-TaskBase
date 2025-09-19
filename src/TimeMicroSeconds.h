@@ -26,6 +26,24 @@ inline timeUs64_t timeUs64() { return esp_timer_get_time(); }
 inline timeUs32_t timeMs() { return static_cast<timeUs32_t>(esp_timer_get_time() / 1000); }
 inline timeUs64_t timeMs64() { return esp_timer_get_time() / 1000; }
 
+#elif defined(FRAMEWORK_STM32_CUBE)
+
+#if defined(FRAMEWORK_STM32_CUBE_F1)
+#include <stm32f1xx_hal.h>
+#elif defined(FRAMEWORK_STM32_CUBE_F3)
+#include <stm32f3xx_hal.h>
+#elif defined(FRAMEWORK_STM32_CUBE_F4)
+#include <stm32f4xx_hal.h>
+#elif defined(FRAMEWORK_STM32_CUBE_F7)
+#include <stm32f7xx_hal.h>
+#endif
+
+inline timeUs32_t timeUs() { return HAL_GetTick()*1000; }
+inline timeUs64_t timeUs64() { return HAL_GetTick()*1000; }
+
+inline timeMs32_t timeMs() { return HAL_GetTick(); }
+inline timeMs64_t timeMs64() { return HAL_GetTick(); }
+
 #elif defined(FRAMEWORK_TEST)
 
 inline timeUs32_t timeUs() { return 0; }
