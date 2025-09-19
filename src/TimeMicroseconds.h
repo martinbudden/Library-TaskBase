@@ -38,8 +38,8 @@ inline timeUs64_t timeMs64() { return esp_timer_get_time() / 1000; }
 #include <stm32f7xx_hal.h>
 #endif
 
-inline timeUs32_t timeUs() { return HAL_GetTick()*1000; }
-inline timeUs64_t timeUs64() { return HAL_GetTick()*1000; }
+inline timeUs32_t timeUs() { enum {msToUs = 1000}; return HAL_GetTick()*msToUs; }
+inline timeUs64_t timeUs64() { enum {msToUs = 1000}; return HAL_GetTick()*msToUs; }
 
 inline timeMs32_t timeMs() { return HAL_GetTick(); }
 inline timeMs64_t timeMs64() { return HAL_GetTick(); }

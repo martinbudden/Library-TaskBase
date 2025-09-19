@@ -14,5 +14,5 @@
     "version": "0.0.7",
     "frameworks": "*",
     "platforms": "*",
-    "headers": [ "TaskBase.h", "TimeMicroSeconds.h"]
+    "headers": [ "TaskBase.h", "TimeMicroseconds.h"]
 }
