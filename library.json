@@ -11,7 +11,7 @@
         "url": "https://github.com/martinbudden/Library-TaskBase.git"
     },
     "license": "MIT",
-    "version": "0.0.9",
+    "version": "0.0.10",
     "frameworks": "*",
     "platforms": "*",
     "headers": [ "TaskBase.h", "TimeMicroseconds.h", "MessageQueueBase.h" ]
