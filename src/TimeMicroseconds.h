@@ -1,5 +1,8 @@
 #pragma once
 
+#include <cstdint>
+
+
 // time in milliseconds
 typedef uint32_t timeMs32_t;
 typedef uint64_t timeMs64_t;
