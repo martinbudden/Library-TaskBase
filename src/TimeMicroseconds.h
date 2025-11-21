@@ -6,10 +6,15 @@
 // time in milliseconds
 typedef uint32_t timeMs32_t;
 typedef uint64_t timeMs64_t;
+typedef int32_t timeMsDelta_t; // 32 bits always sufficient for time delta
+inline timeMsDelta_t compareTimeMs(timeMs64_t a, timeMs64_t b) { return static_cast<timeMsDelta_t>(a - b); }
 
 // time in microseconds
 typedef uint32_t timeUs32_t;
 typedef uint64_t timeUs64_t;
+typedef int32_t timeUsDelta_t; // 32 bits always sufficient for time delta
+inline timeUsDelta_t compareTimeUs(timeUs32_t a, timeUs32_t b) { return static_cast<timeUsDelta_t>(a - b); }
+
 
 #if defined(FRAMEWORK_RPI_PICO)
 
@@ -41,11 +46,11 @@ inline timeUs64_t timeMs64() { return esp_timer_get_time() / 1000; }
 #include <stm32f7xx_hal.h>
 #endif
 
-inline timeUs32_t timeUs() { enum {msToUs = 1000}; return HAL_GetTick()*msToUs; }
-inline timeUs64_t timeUs64() { enum {msToUs = 1000}; return HAL_GetTick()*msToUs; }
+inline timeUs32_t timeUs() { enum {msToUs = 1000}; return static_cast<timeUs32_t>(HAL_GetTick()*msToUs); }
+inline timeUs64_t timeUs64() { enum {msToUs = 1000}; return static_cast<timeUs64_t>(HAL_GetTick()*msToUs); }
 
-inline timeMs32_t timeMs() { return HAL_GetTick(); }
-inline timeMs64_t timeMs64() { return HAL_GetTick(); }
+inline timeMs32_t timeMs() { return static_cast<timeUs32_t>(HAL_GetTick()); }
+inline timeMs64_t timeMs64() { return static_cast<timeUs64_t>(HAL_GetTick()); }
 
 #elif defined(FRAMEWORK_TEST)
 
