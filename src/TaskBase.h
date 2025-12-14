@@ -24,6 +24,8 @@ public:
     inline uint32_t getTaskIntervalMicroseconds() const { return _taskIntervalMicroseconds; }
     inline uint32_t getTickCountDelta() const { return _tickCountDelta; }
     inline uint32_t getTimeMicroSecondDelta() const { return _timeMicrosecondsDelta; }
+    inline bool getWasDelayed() const { return _wasDelayed; }
+    void setWasDelayed(bool wasDelayed) { _wasDelayed = wasDelayed; }
 protected:
     uint32_t _taskIntervalMicroseconds {0};
     uint32_t _previousWakeTimeTicks {0};
@@ -31,4 +33,5 @@ protected:
     uint32_t _tickCountPrevious {0};
     uint32_t _timeMicrosecondsDelta {0};
     uint32_t _timeMicrosecondsPrevious {0};
+    uint32_t _wasDelayed {0};
 };

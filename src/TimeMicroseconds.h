@@ -6,14 +6,16 @@
 // time in milliseconds
 typedef uint32_t timeMs32_t;
 typedef uint64_t timeMs64_t;
-typedef int32_t timeMsDelta_t; // 32 bits always sufficient for time delta
-inline timeMsDelta_t compareTimeMs(timeMs64_t a, timeMs64_t b) { return static_cast<timeMsDelta_t>(a - b); }
+typedef int32_t timeMsDelta_t; // 32 bits is always sufficient for time delta
+inline timeMsDelta_t timeDifferenceMs(timeMs32_t a, timeMs32_t b) { return static_cast<timeMsDelta_t>(static_cast<int32_t>(a) - static_cast<int32_t>(b)); }
+inline timeMsDelta_t timeDifferenceMs(timeMs64_t a, timeMs64_t b) { return static_cast<timeMsDelta_t>(static_cast<int64_t>(a) - static_cast<int64_t>(b)); }
 
 // time in microseconds
 typedef uint32_t timeUs32_t;
 typedef uint64_t timeUs64_t;
-typedef int32_t timeUsDelta_t; // 32 bits always sufficient for time delta
-inline timeUsDelta_t compareTimeUs(timeUs32_t a, timeUs32_t b) { return static_cast<timeUsDelta_t>(a - b); }
+typedef int32_t timeUsDelta_t; // 32 bits is always sufficient for time delta
+inline timeUsDelta_t timeDifferenceUs(timeUs32_t a, timeUs32_t b) { return static_cast<timeUsDelta_t>(static_cast<int32_t>(a) - static_cast<int32_t>(b)); }
+inline timeUsDelta_t timeDifferenceUs(timeUs64_t a, timeUs64_t b) { return static_cast<timeUsDelta_t>(static_cast<int64_t>(a) - static_cast<int64_t>(b)); }
 
 
 #if defined(FRAMEWORK_RPI_PICO)
